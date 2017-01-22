@@ -14,60 +14,56 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Review {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	private String title;
-	private String content;
-	private Date deadline;
-	private int grade;
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
+    private String title;
+    private String content;
+    private Date deadline;
+    private int grade;
 
-	public String getTitle() {
-		return this.title;
-	}
+    public String getTitle() {
+        return this.title;
+    }
 
-	/**
-	 *
-	 * @param title
-	 */
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    /**
+     * @param title
+     */
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getContent() {
-		return this.content;
-	}
+    public String getContent() {
+        return this.content;
+    }
 
-	/**
-	 *
-	 * @param content
-	 */
-	public void setContent(String content) {
-		this.content = content;
-	}
+    /**
+     * @param content
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public Date getDeadline() {
-		return this.deadline;
-	}
+    public Date getDeadline() {
+        return this.deadline;
+    }
 
-	/**
-	 *
-	 * @param deadline
-	 */
-	public void setDeadline(Date deadline) {
-		this.deadline = deadline;
-	}
+    /**
+     * @param deadline
+     */
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
+    }
 
-	public int getGrade() {
-		return this.grade;
-	}
+    public int getGrade() {
+        return this.grade;
+    }
 
-	/**
-	 *
-	 * @param grade
-	 */
-	public void setGrade(int grade) {
-		this.grade = grade;
-	}
+    /**
+     * @param grade
+     */
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
 
 }

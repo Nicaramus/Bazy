@@ -10,11 +10,11 @@ import javax.jdo.annotations.Persistent;
  */
 
 public enum TicketStatus {
-	NOT_PAID,
-	PENDING,
-	COMPLETED,
-	DENIED,
-	NOT_REUQUIRED;
+    NOT_PAID,
+    PENDING,
+    COMPLETED,
+    DENIED,
+    NOT_REUQUIRED;
 }
 /*private int not_paid;
 private int pending;

@@ -11,21 +11,20 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Topic {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	private String name;
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
+    private String name;
 
-	public String getName() {
-		return this.name;
-	}
+    public String getName() {
+        return this.name;
+    }
 
-	/**
-	 *
-	 * @param name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

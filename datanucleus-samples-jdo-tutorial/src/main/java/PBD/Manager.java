@@ -11,17 +11,18 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Manager {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	public void createConference() {
-		// TODO - implement Manager.createConference
-		throw new UnsupportedOperationException();
-	}
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
 
-	public void editConference() {
-		// TODO - implement Manager.editConference
-		throw new UnsupportedOperationException();
-	}
+    public void createConference() {
+        // TODO - implement Manager.createConference
+        throw new UnsupportedOperationException();
+    }
+
+    public void editConference() {
+        // TODO - implement Manager.editConference
+        throw new UnsupportedOperationException();
+    }
 
 }

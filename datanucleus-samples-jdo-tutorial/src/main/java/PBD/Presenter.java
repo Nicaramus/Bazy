@@ -11,22 +11,23 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Presenter {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	public void submitTalk() {
-		// TODO - implement Presenter.submitTalk
-		throw new UnsupportedOperationException();
-	}
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
 
-	public void editTalk() {
-		// TODO - implement Presenter.editTalk
-		throw new UnsupportedOperationException();
-	}
+    public void submitTalk() {
+        // TODO - implement Presenter.submitTalk
+        throw new UnsupportedOperationException();
+    }
 
-	public void deleteTalk() {
-		// TODO - implement Presenter.deleteTalk
-		throw new UnsupportedOperationException();
-	}
+    public void editTalk() {
+        // TODO - implement Presenter.editTalk
+        throw new UnsupportedOperationException();
+    }
+
+    public void deleteTalk() {
+        // TODO - implement Presenter.deleteTalk
+        throw new UnsupportedOperationException();
+    }
 
 }

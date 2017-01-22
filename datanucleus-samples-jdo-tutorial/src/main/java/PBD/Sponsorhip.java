@@ -11,34 +11,32 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Sponsorhip {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	private double amount;
-	private String currency;
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
+    private double amount;
+    private String currency;
 
-	public double getAmount() {
-		return this.amount;
-	}
+    public double getAmount() {
+        return this.amount;
+    }
 
-	/**
-	 *
-	 * @param amount
-	 */
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
+    /**
+     * @param amount
+     */
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
 
-	public String getCurrency() {
-		return this.currency;
-	}
+    public String getCurrency() {
+        return this.currency;
+    }
 
-	/**
-	 *
-	 * @param currency
-	 */
-	public void setCurrency(String currency) {
-		this.currency = currency;
-	}
+    /**
+     * @param currency
+     */
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
 }

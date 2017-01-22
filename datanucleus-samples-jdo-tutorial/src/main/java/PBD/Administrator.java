@@ -10,28 +10,29 @@ import javax.jdo.annotations.Persistent;
  */
 @PersistenceCapable
 public class Administrator {
-  
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	public void addUser() {
-		// TODO - implement Administrator.addUser
-		throw new UnsupportedOperationException();
-	}
 
-	public void deleteUser() {
-		// TODO - implement Administrator.deleteUser
-		throw new UnsupportedOperationException();
-	}
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
 
-	public void grantUser() {
-		// TODO - implement Administrator.grantUser
-		throw new UnsupportedOperationException();
-	}
+    public void addUser() {
+        // TODO - implement Administrator.addUser
+        throw new UnsupportedOperationException();
+    }
 
-	public void revokeUser() {
-		// TODO - implement Administrator.revokeUser
-		throw new UnsupportedOperationException();
-	}
+    public void deleteUser() {
+        // TODO - implement Administrator.deleteUser
+        throw new UnsupportedOperationException();
+    }
+
+    public void grantUser() {
+        // TODO - implement Administrator.grantUser
+        throw new UnsupportedOperationException();
+    }
+
+    public void revokeUser() {
+        // TODO - implement Administrator.revokeUser
+        throw new UnsupportedOperationException();
+    }
 
 }

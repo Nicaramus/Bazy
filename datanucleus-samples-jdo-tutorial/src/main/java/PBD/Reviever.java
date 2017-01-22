@@ -11,17 +11,18 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Reviever {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	public void createReview() {
-		// TODO - implement Reviever.createReview
-		throw new UnsupportedOperationException();
-	}
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
 
-	public void addSpecialization() {
-		// TODO - implement Reviever.addSpecialization
-		throw new UnsupportedOperationException();
-	}
+    public void createReview() {
+        // TODO - implement Reviever.createReview
+        throw new UnsupportedOperationException();
+    }
+
+    public void addSpecialization() {
+        // TODO - implement Reviever.addSpecialization
+        throw new UnsupportedOperationException();
+    }
 
 }

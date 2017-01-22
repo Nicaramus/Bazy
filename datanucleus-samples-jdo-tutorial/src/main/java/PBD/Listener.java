@@ -11,12 +11,13 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Listener {
 
-  @PrimaryKey
-  @Persistent(valueStrategy=IdGeneratorStrategy.NATIVE)
-  private long id;
-	public void buyTicket() {
-		// TODO - implement Listener.buyTicket
-		throw new UnsupportedOperationException();
-	}
+    @PrimaryKey
+    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+    private long id;
+
+    public void buyTicket() {
+        // TODO - implement Listener.buyTicket
+        throw new UnsupportedOperationException();
+    }
 
 }
