@@ -2,11 +2,11 @@ package PBD;
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
-
 import java.sql.Timestamp;
-
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.ForeignKey;
+
 
 /**
  * Definition of class
@@ -31,6 +31,9 @@ public class User {
     private String affilaction;
     private String email_public;
     private boolean phone_public;
+
+    @Persistent(mappedBy="listener")
+    private Listener listener;
 
     public void create() {
         // TODO - implement User.create

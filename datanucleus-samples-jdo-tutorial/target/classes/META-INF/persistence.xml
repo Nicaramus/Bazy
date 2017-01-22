@@ -5,9 +5,23 @@
 
     <!-- Tutorial "unit" -->
     <persistence-unit name="Tutorial">
-        <class>org.datanucleus.samples.jdo.tutorial.Inventory</class>
-        <class>org.datanucleus.samples.jdo.tutorial.Product</class>
-        <class>org.datanucleus.samples.jdo.tutorial.Book</class>
+        <class>PBD.Administrator</class>
+        <class>PBD.Conference</class>
+        <class>PBD.Listener</class>
+        <class>PBD.Manager</class>
+        <class>PBD.Presenter</class>
+        <class>PBD.Reviewer</class>
+        <class>PBD.Review</class>
+        <class>PBD.Room</class>
+        <class>PBD.ScheduleDay</class>
+        <class>PBD.Sponsor</class>
+        <class>PBD.Sponsorship</class>
+        <class>PBD.Talk</class>
+        <class>PBD.Ticket</class>
+        <class>PBD.TicketStatus</class>
+        <class>PBD.Topic</class>
+        <class>PBD.User</class>
+        <class>PBD.Venue</class>
         <exclude-unlisted-classes/>
         <properties>
             <!-- ENABLE THESE FOR H2 -->
