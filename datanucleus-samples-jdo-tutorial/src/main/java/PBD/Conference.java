@@ -5,6 +5,7 @@ import javax.jdo.annotations.PrimaryKey;
 
 import java.awt.Image;
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
@@ -48,9 +49,14 @@ public class Conference {
 
     /**
      * @param title
+     * @throws Exception 
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitle(String title){
+    	if(title.matches("[a-zA-Z]{2,20}")){
+    		this.title = title;
+    	}else{
+    		System.out.println("Niepoprawny format tytułu.");
+    	}
     }
 
     public String getDescription() {
@@ -72,7 +78,22 @@ public class Conference {
      * @param start_date
      */
     public void setStart_date(Timestamp start_date) {
-        this.start_date = start_date;
+    	Date date = new Date();
+    	long current = date.getTime();
+    	if(current < start_date.getTime()){
+    		if(end_date != null){
+    			if(start_date.compareTo(end_date) == -1){
+    				this.start_date = start_date;
+    			}else{
+    				System.out.println("Data startowa konferencji nie może być póżniejsza niż data końcowa");
+    			}
+    		}
+    		else{
+    			this.start_date = start_date;
+    		}	
+    	}else{
+    		System.out.println("Data startowa konferencji nie może być wcześniejsza niż data aktulna.");
+    	}
     }
 
     public Timestamp getEnd_date() {
@@ -83,7 +104,22 @@ public class Conference {
      * @param end_date
      */
     public void setEnd_date(Timestamp end_date) {
-        this.end_date = end_date;
+    	Date date = new Date();
+    	long current = date.getTime();
+    	if(current < end_date.getTime()){
+    		if(start_date != null){
+    			if(start_date.compareTo(end_date) == -1){
+    				this.end_date = end_date;
+    			}else{
+    				System.out.println("Data końcowa konferencji nie może być wcześniejsza niż data rozpoczęcia");
+    			}
+    		}
+    		else{
+    			this.end_date = end_date;
+    		}	
+    	}else{
+    		System.out.println("Data końcowa konferencji nie może być wcześniejsza niż data aktulna.");
+    	}
     }
 
     public Image getLogo() {
@@ -127,7 +163,11 @@ public class Conference {
      * @param ticket_limit
      */
     public void setTicket_limit(int ticket_limit) {
-        this.ticket_limit = ticket_limit;
+		if (ticket_limit >= 0) {
+			this.ticket_limit = ticket_limit;
+		} else {
+			System.out.println("Limit biletów nie może być liczbą ujemną.");
+		}
     }
 
 }

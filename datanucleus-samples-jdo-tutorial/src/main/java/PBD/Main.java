@@ -1,5 +1,6 @@
 package PBD;
 
+import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,6 +15,12 @@ public class Main
 {
     public static void main(String args[])
     {
+    	Conference conf = new Conference();
+    	conf.setTitle("papsap");	
+    	conf.setEnd_date(new Timestamp(121, 12, 21, 10, 23, 12, 12));
+    	conf.setStart_date(new Timestamp(119, 12, 21, 10, 23, 12, 12)); //arg. 110 to rok 2011
+    	
+    	
 //        // Create a PersistenceManagerFactory for this datastore
 //        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Tutorial");
 //
