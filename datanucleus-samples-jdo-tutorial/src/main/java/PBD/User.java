@@ -32,8 +32,11 @@ public class User {
     private String email_public;
     private boolean phone_public;
 
-    @Persistent(mappedBy="listener")
+    @Persistent(mappedBy="userOfListener")
     private Listener listener;
+
+    @Persistent(mappedBy="userOfReviewer")
+    private Reviever reviewer;
 
     public void create() {
         // TODO - implement User.create

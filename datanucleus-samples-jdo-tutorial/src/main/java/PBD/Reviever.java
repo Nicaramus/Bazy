@@ -1,9 +1,6 @@
 package PBD;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.PrimaryKey;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.Persistent;
+import javax.jdo.annotations.*;
 
 /**
  * Definition of class
@@ -14,6 +11,9 @@ public class Reviever {
     @PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
     private long id;
+
+    @Column(name="user_id")
+    private User userOfReviewer;
 
     public void createReview() {
         // TODO - implement Reviever.createReview
