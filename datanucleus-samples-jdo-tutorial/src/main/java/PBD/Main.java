@@ -14,6 +14,7 @@ public class Main
 {
     public static void main(String args[])
     {
+        System.out.println("fdf\nd\ns");
 //        // Create a PersistenceManagerFactory for this datastore
 //        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Tutorial");
 //

@@ -22,6 +22,9 @@ public class Review {
     private Date deadline;
     private int grade;
 
+    Reviewer reviewer;
+    Talk talk;
+
     public String getTitle() {
         return this.title;
     }

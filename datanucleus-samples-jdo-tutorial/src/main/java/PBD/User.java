@@ -5,7 +5,6 @@ import javax.jdo.annotations.PrimaryKey;
 import java.sql.Timestamp;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.ForeignKey;
 
 
 /**
@@ -36,7 +35,7 @@ public class User {
     private Listener listener;
 
     @Persistent(mappedBy="userOfReviewer")
-    private Reviever reviewer;
+    private Reviewer reviewer;
 
     public void create() {
         // TODO - implement User.create
