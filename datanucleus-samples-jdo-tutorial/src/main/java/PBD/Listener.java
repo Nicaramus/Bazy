@@ -13,8 +13,6 @@ public class Listener {
     @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
     private long id;
 
-    //    @Persistent(mappedBy="user")
-
     @Column(name="user_id")
     @ForeignKey
     private User userOfListener;
