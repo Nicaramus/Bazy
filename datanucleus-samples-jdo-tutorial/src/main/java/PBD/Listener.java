@@ -1,12 +1,7 @@
 package PBD;
 
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.PrimaryKey;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.Column;
-import javax.jdo.annotations.ForeignKey;
-
+import javax.jdo.annotations.*;
+import java.util.ArrayList;
 
 /**
  * Definition of class
@@ -20,7 +15,10 @@ public class Listener {
 
     @Column(name="user_id")
     @ForeignKey
-    private User user;
+    private User userOfListener;
+
+    @Element(column="listener_id")
+    ArrayList<Ticket> tickets;
 
     public void buyTicket() {
         // TODO - implement Listener.buyTicket

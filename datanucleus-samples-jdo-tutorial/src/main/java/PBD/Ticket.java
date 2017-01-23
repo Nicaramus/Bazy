@@ -28,6 +28,8 @@ public class Ticket {
         throw new UnsupportedOperationException();
     }
 
+    private Conference conference;
+
     public Timestamp getCreated_at() {
         return this.created_at;
     }

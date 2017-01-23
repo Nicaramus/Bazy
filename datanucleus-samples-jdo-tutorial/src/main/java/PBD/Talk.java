@@ -4,6 +4,7 @@ import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
@@ -27,6 +28,11 @@ public class Talk {
     public String getTitle() {
         return this.title;
     }
+
+    Topic topic;
+
+    @Persistent(mappedBy="talk")
+    ArrayList<Review> talkReviews;
 
     /**
      * @param title

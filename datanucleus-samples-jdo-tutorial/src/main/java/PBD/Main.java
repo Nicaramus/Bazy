@@ -20,7 +20,7 @@ public class Main
     	conf.setEnd_date(new Timestamp(121, 12, 21, 10, 23, 12, 12));
     	conf.setStart_date(new Timestamp(119, 12, 21, 10, 23, 12, 12)); //arg. 110 to rok 2011
     	
-    	
+        System.out.println("fdf\nd\ns");
 //        // Create a PersistenceManagerFactory for this datastore
 //        PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Tutorial");
 //

@@ -6,6 +6,7 @@ import javax.jdo.annotations.PrimaryKey;
 import java.awt.Image;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.ArrayList;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
@@ -27,6 +28,9 @@ public class Conference {
     private Timestamp registration_start_date;
     private Timestamp registration_end_date;
     private int ticket_limit;
+
+    @Persistent(mappedBy="conference")
+    ArrayList<Ticket> tickets;
 
     public int getRegistrationNumber() {
         // TODO - implement Conference.getRegistrationNumber

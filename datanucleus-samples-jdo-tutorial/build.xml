@@ -146,6 +146,6 @@ tutorial build
     <target name="runtutorial" description="Run the application">
         <copy file="log4j.properties"
               tofile="${classes.dir}/log4j.properties"/>
-        <java classname="org.datanucleus.samples.jdo.tutorial.Main" classpathref="lib.classpath" fork="true"/>
+        <java classname="PBD.Main" classpathref="lib.classpath" fork="true"/>
     </target>
 </project>
