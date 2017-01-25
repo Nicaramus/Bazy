@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
+ import java.util.*;
 
 /**
  * Definition of class
@@ -28,9 +29,51 @@ public class Conference {
     private Timestamp registration_start_date;
     private Timestamp registration_end_date;
     private int ticket_limit;
+    private double tickets_price;
 
     @Persistent(mappedBy="conference")
     ArrayList<Ticket> tickets;
+
+
+	public Conference(String t, Timestamp s, Timestamp e, int n, double tp)
+	{
+	title=t;
+	start_date=s;
+	end_date=e;
+	ticket_limit=n;
+	tickets= new ArrayList(ticket_limit);
+	tickets_price=tp;	
+	}
+	public Ticket buyTicket(Listener c)
+	{
+	return buyTicket(1, c);
+	}
+
+	public Ticket buyTicket(int number, Listener c)
+	{		
+	Ticket t =new Ticket(0, number, tickets_price, c);
+	tickets.add(t);
+	return t;
+	}
+
+	public int getFreeTickets()
+	{	
+	return ticket_limit-getReservations();
+	}
+
+	public int getReservations()
+	{
+	int r =0;
+	for(int i =0;i<tickets.size();i++)
+	{
+	r+=tickets.get(i).getQuantity();
+
+	}
+	
+	return  r;
+	}
+
+
 
     public int getRegistrationNumber() {
         // TODO - implement Conference.getRegistrationNumber
@@ -173,5 +216,9 @@ public class Conference {
 			System.out.println("Limit biletów nie może być liczbą ujemną.");
 		}
     }
+
+	@Override 			
+	public String toString()
+	{return "Conference title " +  getTitle();}
 
 }

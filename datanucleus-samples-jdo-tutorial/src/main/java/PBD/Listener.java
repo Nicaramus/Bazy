@@ -20,9 +20,30 @@ public class Listener {
     @Element(column="listener_id")
     ArrayList<Ticket> tickets;
 
-    public void buyTicket() {
-        // TODO - implement Listener.buyTicket
-        throw new UnsupportedOperationException();
+	public Listener(User u)
+	{
+	tickets=new ArrayList();
+userOfListener=u;
+
+	}
+
+   public void buyTicket(int n, Conference c) {
+		
+	Ticket t = c.buyTicket(n, this);
+	//tickets.add(t);
+
     }
+public void buyTicket( Conference c) {
+		
+	Ticket t = c.buyTicket(1, this);
+//tickets.add(t);
+
+    }
+
+@Override
+public String toString()
+{
+return "user is listener";
+}
 
 }

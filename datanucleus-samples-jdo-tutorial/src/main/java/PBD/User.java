@@ -31,11 +31,28 @@ public class User {
     private String email_public;
     private boolean phone_public;
 
-    @Persistent(mappedBy="userOfListener")
-    private Listener listener;
+	 @Persistent(mappedBy="userOfListener")
+      private Listener listener;
+  
+
 
     @Persistent(mappedBy="userOfReviewer")
     private Reviewer reviewer;
+
+	public void  setListener()
+{
+listener = new Listener(this);
+
+}
+
+public Listener getListener()
+{
+if(listener==null)
+{
+ throw new UnsupportedOperationException();
+}
+return listener;
+}
 
     public void create() {
         // TODO - implement User.create
@@ -201,5 +218,11 @@ public class User {
     public void setPhone_public(boolean phone_public) {
         this.phone_public = phone_public;
     }
+
+@Override
+public String toString()
+{
+return getNickname();
+}
 
 }

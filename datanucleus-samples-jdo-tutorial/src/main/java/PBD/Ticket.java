@@ -18,10 +18,25 @@ public class Ticket {
     @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
     private long id;
     private Timestamp created_at;
-    private TicketStatus status;
+    private int status;
     private String currency;
     private int quantity;
     private double price;
+
+   //@Persistent(mappedBy="Tickerlistener")
+    //private Listener listener;
+
+    public Ticket(int status, int q, double price, Listener l)
+    {
+	this.status= status;
+	this.quantity=q;
+	this.price=price;
+	//listener=l;
+
+
+    }
+	
+
 
     public void changeStatus() {
         // TODO - implement Ticket.changeStatus
@@ -41,14 +56,14 @@ public class Ticket {
         this.created_at = created_at;
     }
 
-    public TicketStatus getStatus() {
+    public int getStatus() {
         return this.status;
     }
 
     /**
      * @param status
      */
-    public void setStatus(TicketStatus status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -67,12 +82,10 @@ public class Ticket {
         return this.quantity;
     }
 
-    /**
-     * @param quantity
-     */
+   
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
+    }	
 
     public double getPrice() {
         return this.price;
