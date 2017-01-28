@@ -252,27 +252,35 @@ public class Main {
 
 
 	////////////////////////////////////////////////////////////////
-//		pm = pmf.getPersistenceManager();
-//		tx = pm.currentTransaction();
+		pm = pmf.getPersistenceManager();
+		tx = pm.currentTransaction();
+		tx.begin();
 
-		User testUser = new User();
-		testUser.setPresenter();
-		System.out.println("\nUżytkownik o ID: " + testUser.getUserID() + " próbuje zgłasza publikację, a potem próbuje ją zrecenzować.");
-		Talk testTalk = testUser.getPresenter().submitTalk("Naukowa praca");
-//		pm.makePersistent(testUser);
-//		pm.makePersistent(testTalk);
+			User testUser = new User();
+			pm.makePersistent(testUser);
+			testUser = (User)pm.detachCopy(testUser);
+
+			User testUser2 = new User();
+			pm.makePersistent(testUser2);
+			testUser2 = (User)pm.detachCopy(testUser2);
+			
+			tx.commit();
 		
-		testUser.setReviewer();
-		testUser.getReviewer().createReview(testTalk, "Recenzja naukowej pracy", "Lorem ipsum x560");
-		
-		
-		User testUser2 = new User();
-		System.out.println("\nKolejny użytkownik o ID: " + testUser2.getUserID() + " recenzuje prace bez komunikatu o niepowodzeniu."); //jeszcze nie działa
-		testUser2.setPresenter();
-		testUser2.setReviewer();
-		testUser2.getReviewer().createReview(testTalk, "Recenzja naukowej pracy", "Lorem ipsum x560");
-//		pm.makePersistent(testUser2);
-		tx.commit();
+
+
+			System.out.println("\nUżytkownik o ID: " + testUser.getUserID()
+			+ " próbuje zgłasza publikację, a potem próbuje ją zrecenzować.");
+			testUser.setPresenter();
+			Talk testTalk = testUser.getPresenter().submitTalk("Naukowa praca");
+			testUser.setReviewer();
+			testUser.getReviewer().createReview(testTalk, "Recenzja naukowej pracy", "Lorem ipsum x560");
+
+			System.out.println("\nKolejny użytkownik o ID: " + testUser2.getUserID()
+			+ " recenzuje prace bez komunikatu o niepowodzeniu.");
+			testUser2.setPresenter();
+			testUser2.setReviewer();
+			testUser2.getReviewer().createReview(testTalk, "Recenzja naukowej pracy", "Lorem ipsum x560");
+			 
 		
         // Clean out the database
 //        pm = pmf.getPersistenceManager();
