@@ -14,59 +14,73 @@ import javax.jdo.annotations.Persistent;
 @PersistenceCapable
 public class Review {
 
-    @PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
-    private long id;
-    private String title;
-    private String content;
-    private Date deadline;
-    private int grade;
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+	private long id;
+	private String title;
+	private String content;
+	private Date deadline;
+	private int grade;
 
-    Reviewer reviewer;
-    Talk talk;
+	Reviewer reviewer;
+	Talk talk;
 
-    public String getTitle() {
-        return this.title;
-    }
+	
+	public Review(Reviewer reviewer, Talk talk){
+		this.reviewer = reviewer;
+		this.talk = talk;
+	}
+	
+	public Review(Reviewer reviewer, Talk talk, String title, String content){
+		this.reviewer = reviewer;
+		this.talk = talk;
+		setTitle(title);
+		setContent(content);
+	}
+	
+	public String getTitle() {
+		return this.title;
+	}
 
-    /**
-     * @param title
-     */
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	/**
+	 * @param title
+	 */
+	public void setTitle(String title) {
+		 // TODO - implement validation
+		this.title = title;
+	}
 
-    public String getContent() {
-        return this.content;
-    }
+	public String getContent() {
+		return this.content;
+	}
 
-    /**
-     * @param content
-     */
-    public void setContent(String content) {
-        this.content = content;
-    }
+	/**
+	 * @param content
+	 */
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public Date getDeadline() {
-        return this.deadline;
-    }
+	public Date getDeadline() {
+		return this.deadline;
+	}
 
-    /**
-     * @param deadline
-     */
-    public void setDeadline(Date deadline) {
-        this.deadline = deadline;
-    }
+	/**
+	 * @param deadline
+	 */
+	public void setDeadline(Date deadline) {
+		this.deadline = deadline;
+	}
 
-    public int getGrade() {
-        return this.grade;
-    }
+	public int getGrade() {
+		return this.grade;
+	}
 
-    /**
-     * @param grade
-     */
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
+	/**
+	 * @param grade
+	 */
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 
 }

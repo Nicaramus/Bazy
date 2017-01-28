@@ -30,10 +30,17 @@ public class Talk {
     }
 
     Topic topic;
-
+    
+    private Presenter presenter;
+    
     @Persistent(mappedBy="talk")
     ArrayList<Review> talkReviews;
 
+    
+    public Talk(String title, Presenter presenter){
+    	this.title = title;
+    	this.presenter = presenter;
+    }
     /**
      * @param title
      */
@@ -89,6 +96,10 @@ public class Talk {
         return this.start_time;
     }
 
+    
+    public Presenter getPresenter(){
+    	return presenter;
+    }
     /**
      * @param start_time
      */

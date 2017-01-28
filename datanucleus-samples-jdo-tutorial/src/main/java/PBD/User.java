@@ -6,223 +6,246 @@ import java.sql.Timestamp;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.Persistent;
 
-
 /**
  * Definition of class
  */
 @PersistenceCapable
 public class User {
 
-    @PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
-    private long id;
-    private String firstname;
-    private String lastname;
-    private String email;
-    private String password;
-    private String password_reset_token;
-    private Timestamp password_reset_sent_at;
-    private int confirmation_token;
-    private Timestamp confirmed_at;
-    private String bio;
-    private String nickname;
-    private String phone;
-    private String affilaction;
-    private String email_public;
-    private boolean phone_public;
+	@PrimaryKey
+	@Persistent(valueStrategy = IdGeneratorStrategy.NATIVE)
+	private long id;
+	private String firstname;
+	private String lastname;
+	private String email;
+	private String password;
+	private String password_reset_token;
+	private Timestamp password_reset_sent_at;
+	private int confirmation_token;
+	private Timestamp confirmed_at;
+	private String bio;
+	private String nickname;
+	private String phone;
+	private String affilaction;
+	private String email_public;
+	private boolean phone_public;
 
-	 @Persistent(mappedBy="userOfListener")
-      private Listener listener;
-  
+	@Persistent(mappedBy = "userOfListener")
+	private Listener listener;
 
+	@Persistent(mappedBy = "userOfPresenter")
+	private Presenter presenter;
 
-    @Persistent(mappedBy="userOfReviewer")
-    private Reviewer reviewer;
+	@Persistent(mappedBy = "userOfReviewer")
+	private Reviewer reviewer;
 
-	public void  setListener()
-{
-listener = new Listener(this);
+	public void setListener() {
+		listener = new Listener(this);
 
-}
+	}
 
-public Listener getListener()
-{
-if(listener==null)
-{
- throw new UnsupportedOperationException();
-}
-return listener;
-}
+	public Listener getListener() {
+		if (listener == null) {
+			throw new UnsupportedOperationException();
+		}
+		return listener;
+	}
+	
+	public void setReviewer() {
+		reviewer = new Reviewer(this);
 
-    public void create() {
-        // TODO - implement User.create
-        throw new UnsupportedOperationException();
-    }
+	}
 
-    public void update() {
-        // TODO - implement User.update
-        throw new UnsupportedOperationException();
-    }
+	public Reviewer getReviewer() {
+		if (reviewer == null) {
+			throw new UnsupportedOperationException();
+		}
+		return reviewer;
+	}
+	
+	public void setPresenter() {
+		presenter = new Presenter(this);
+	}
 
-    public String getFirstname() {
-        return this.firstname;
-    }
+	public Presenter getPresenter() {
+		if (presenter == null) {
+			throw new UnsupportedOperationException();
+		}
+		return presenter;
+	}
 
-    /**
-     * @param firstname
-     */
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+	public void create() {
+		// TODO - implement User.create
+		throw new UnsupportedOperationException();
+	}
 
-    public String getLastname() {
-        return this.lastname;
-    }
+	public void update() {
+		// TODO - implement User.update
+		throw new UnsupportedOperationException();
+	}
 
-    /**
-     * @param lastname
-     */
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
+	public String getFirstname() {
+		return this.firstname;
+	}
 
-    public String getEmail() {
-        return this.email;
-    }
+	/**
+	 * @param firstname
+	 */
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
 
-    /**
-     * @param email
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getLastname() {
+		return this.lastname;
+	}
 
-    public String getPassword() {
-        return this.password;
-    }
+	/**
+	 * @param lastname
+	 */
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
 
-    /**
-     * @param password
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
+	public String getEmail() {
+		return this.email;
+	}
 
-    public String getPassword_reset_token() {
-        return this.password_reset_token;
-    }
+	/**
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    /**
-     * @param password_reset_token
-     */
-    public void setPassword_reset_token(String password_reset_token) {
-        this.password_reset_token = password_reset_token;
-    }
+	public String getPassword() {
+		return this.password;
+	}
 
-    public Timestamp getPassword_reset_sent_at() {
-        return this.password_reset_sent_at;
-    }
+	/**
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    /**
-     * @param password_reset_sent_at
-     */
-    public void setPassword_reset_sent_at(Timestamp password_reset_sent_at) {
-        this.password_reset_sent_at = password_reset_sent_at;
-    }
+	public String getPassword_reset_token() {
+		return this.password_reset_token;
+	}
 
-    public void getConfirmation_token() {
-        // TODO - implement User.getConfirmation_token
-        throw new UnsupportedOperationException();
-    }
+	/**
+	 * @param password_reset_token
+	 */
+	public void setPassword_reset_token(String password_reset_token) {
+		this.password_reset_token = password_reset_token;
+	}
 
-    /**
-     * @param confirmation_token
-     */
-    public void setConfirmation_token(int confirmation_token) {
-        this.confirmation_token = confirmation_token;
-    }
+	public Timestamp getPassword_reset_sent_at() {
+		return this.password_reset_sent_at;
+	}
 
-    public Timestamp getConfirmed_at() {
-        return this.confirmed_at;
-    }
+	/**
+	 * @param password_reset_sent_at
+	 */
+	public void setPassword_reset_sent_at(Timestamp password_reset_sent_at) {
+		this.password_reset_sent_at = password_reset_sent_at;
+	}
 
-    /**
-     * @param confirmed_at
-     */
-    public void setConfirmed_at(Timestamp confirmed_at) {
-        this.confirmed_at = confirmed_at;
-    }
+	public void getConfirmation_token() {
+		// TODO - implement User.getConfirmation_token
+		throw new UnsupportedOperationException();
+	}
 
-    public String getBio() {
-        return this.bio;
-    }
+	/**
+	 * @param confirmation_token
+	 */
+	public void setConfirmation_token(int confirmation_token) {
+		this.confirmation_token = confirmation_token;
+	}
 
-    /**
-     * @param bio
-     */
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
+	public Timestamp getConfirmed_at() {
+		return this.confirmed_at;
+	}
 
-    public String getNickname() {
-        return this.nickname;
-    }
+	/**
+	 * @param confirmed_at
+	 */
+	public void setConfirmed_at(Timestamp confirmed_at) {
+		this.confirmed_at = confirmed_at;
+	}
 
-    /**
-     * @param nickname
-     */
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+	public String getBio() {
+		return this.bio;
+	}
 
-    public String getPhone() {
-        return this.phone;
-    }
+	/**
+	 * @param bio
+	 */
+	public void setBio(String bio) {
+		this.bio = bio;
+	}
 
-    /**
-     * @param phone
-     */
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public String getNickname() {
+		return this.nickname;
+	}
 
-    public String getAffilaction() {
-        return this.affilaction;
-    }
+	/**
+	 * @param nickname
+	 */
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 
-    /**
-     * @param affilaction
-     */
-    public void setAffilaction(String affilaction) {
-        this.affilaction = affilaction;
-    }
+	public String getPhone() {
+		return this.phone;
+	}
 
-    public String getEmail_public() {
-        return this.email_public;
-    }
+	long getUserID(){
+		return this.id;
+	}
+	
+	/**
+	 * @param phone
+	 */
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
-    /**
-     * @param email_public
-     */
-    public void setEmail_public(String email_public) {
-        this.email_public = email_public;
-    }
+	public String getAffilaction() {
+		return this.affilaction;
+	}
 
-    public boolean getPhone_public() {
-        return this.phone_public;
-    }
+	/**
+	 * @param affilaction
+	 */
+	public void setAffilaction(String affilaction) {
+		this.affilaction = affilaction;
+	}
 
-    /**
-     * @param phone_public
-     */
-    public void setPhone_public(boolean phone_public) {
-        this.phone_public = phone_public;
-    }
+	public String getEmail_public() {
+		return this.email_public;
+	}
 
-@Override
-public String toString()
-{
-return getNickname();
-}
+	/**
+	 * @param email_public
+	 */
+	public void setEmail_public(String email_public) {
+		this.email_public = email_public;
+	}
+
+	public boolean getPhone_public() {
+		return this.phone_public;
+	}
+
+	/**
+	 * @param phone_public
+	 */
+	public void setPhone_public(boolean phone_public) {
+		this.phone_public = phone_public;
+	}
+
+	@Override
+	public String toString() {
+		return getNickname();
+	}
 
 }
